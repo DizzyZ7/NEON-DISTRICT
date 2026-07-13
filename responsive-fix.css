@@ -1,0 +1,37 @@
+/* Responsive hardening — 2026-07 */
+html, body { width: 100%; max-width: 100%; overflow-x: clip; }
+body, main, section, footer { min-width: 0; }
+.hero, .poster-lab, .lineup, .program, .footer { overflow-x: clip; }
+.section-shell { max-width: calc(100% - 32px); }
+.hero__title { width: min(100%, 1760px); padding-inline: 2vw; font-size: clamp(88px, 11.3vw, 184px); line-height: .74; }
+.hero__title-line--outline { transform: translateX(-1%); }
+.hero__title-line--shift { transform: translateX(2%); }
+.poster-deck { max-width: 100%; }
+.poster { min-width: 0; contain: layout paint; }
+.poster > * { max-width: 100%; }
+.footer__marquee { max-width: none; }
+@media (min-width: 900px) and (max-height: 820px) {
+  .hero__title { top: 56%; font-size: clamp(82px, 10.4vw, 154px); }
+  .hero__meta { max-width: 300px; }
+}
+@media (max-width: 899px) {
+  .hero { overflow: hidden; min-height: max(780px, 100svh); }
+  .hero__title { width: calc(100% - 24px); padding: 0; top: 40%; font-size: clamp(58px, 17vw, 86px); line-height: .8; letter-spacing: -.055em; transform: translate(-50%, -50%) !important; }
+  .hero__title-line--outline, .hero__title-line--shift { transform: none; }
+  .hero__portal { max-width: 100%; }
+  .poster-deck { width: 100%; padding-inline: 0; gap: 14px; overscroll-behavior-inline: contain; scrollbar-width: none; }
+  .poster-deck::-webkit-scrollbar { display: none; }
+  .poster, .poster * { min-width: 0; }
+  .poster { flex: 0 0 min(82vw, 360px); width: auto; overflow: hidden; }
+  .poster span, .poster strong, .poster small { max-width: calc(100% - 32px) !important; white-space: normal !important; overflow-wrap: anywhere; word-break: normal; }
+  .poster--one strong, .poster--two strong, .poster--three strong, .poster--four strong { font-size: clamp(42px, 11vw, 62px) !important; line-height: .88 !important; }
+  .poster--one i { width: 160px; height: 160px; right: 0; }
+  .poster--two i { inset-inline: 0; }
+  .poster--three i { right: 12%; transform: skew(-10deg); }
+  .poster--four i { width: 130px; height: 130px; left: 12%; box-shadow: 58px -72px 0 #2ef2ff; }
+  .tunnel-ring--1 { max-width: 86vw; max-height: 86vw; }
+}
+@media (max-width: 520px) {
+  .hero__title { top: 39%; font-size: clamp(52px, 15.5vw, 68px); }
+  .poster { flex-basis: min(84vw, 340px); }
+}
